@@ -1,12 +1,13 @@
 import React from 'react'
 import { flushSync } from 'react-dom'
+import Item from './Item';
 
 import './index.css'
 
 class ConcurrentModeDemo extends React.Component {
   state = {
     num: 1,
-    length: 9999,
+    length: 19999,
   }
 
   componentDidMount() {
@@ -37,9 +38,10 @@ class ConcurrentModeDemo extends React.Component {
 
     for (let i = 0; i < length; i++) {
       children.push(
-        <div className="item" key={i}>
-          {num}
-        </div>,
+        <Item
+          key={i}
+          num={num}
+        />
       )
     }
 
